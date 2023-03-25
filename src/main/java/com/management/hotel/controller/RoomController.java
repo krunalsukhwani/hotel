@@ -28,4 +28,19 @@ public class RoomController {
     public Flux<Room> getAllRoomDetails(){
         return roomService.getAllRoomDetails();
     }
+
+    @GetMapping("single")
+    public Mono<Room> getSingleRoomDetails(@RequestParam("id") int id){
+        return roomService.getSingleRoomDetails(id);
+    }
+
+    @PutMapping("update")
+    public Mono updateRoomDetails(@RequestBody Room room){
+        return roomService.updateRoomDetails(room);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public Mono deleteRoomDetails(@PathVariable("id")int id){
+        return roomService.deleteRoomDetails(id);
+    }
 }

@@ -22,4 +22,19 @@ public class RoomServiceImpl implements RoomService{
     public Flux<Room> getAllRoomDetails() {
         return roomRepository.findAll();
     }
+
+    @Override
+    public Mono<Room> getSingleRoomDetails(int id) {
+        return roomRepository.findById(id);
+    }
+
+    @Override
+    public Mono updateRoomDetails(Room room) {
+        return roomRepository.save(room);
+    }
+
+    @Override
+    public Mono deleteRoomDetails(int id) {
+        return roomRepository.deleteById(id);
+    }
 }
